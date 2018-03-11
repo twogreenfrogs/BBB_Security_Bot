@@ -1,0 +1,67 @@
+BBB Pin allocation
+====================================
+/sys/devices/bone_capemgr.9/slots
+;where device tree overlay info can be found
+
+/sys/kernel/debug/pinctrl/44e10800.pinmux/pins
+;where pin mux info can be found
+
+GND PINs:
+----------------------------------
+P9: 1, 2, 43, 44, 45, 46. P8: 1, 2
+
+VCC PINs:
+----------------------------------
+P9-3, P9-4 for 3.3v; only 250mA Max current
+P9-5, P9-6 for Raw 5v; 1A Max with 5V DC jack powered
+P9-7, P9-8 for 5v; 250mA Max
+
+GPS communication
+-------------------------
+P9_21: UART2_TXD
+P9_22: UART2_RXD
+
+Maestro_Servo_Controller
+-------------------------
+P8_37: UART5_TXD
+P8_38: UART5_RXD
+
+PWM for Servo control
+-------------------------
+P9_31
+P9_42
+
+For Arduino Communication(433Mhz RxTx)
+-----------------------------------------
+P9_24: UART1_TXD
+P9_26: UART1_RXD
+
+Keypad, Zigbee Communication(915Mhz RxTx)
+------------------------------------------
+P9_11: UART4_RXD
+P9_13: UART4_TXD
+
+Motion Detector Sensor
+-------------------------
+P9_3: 3.3V power to Motion Detector
+(x)P9_11: GPIO0[30]; gpio_no:30
+
+i2C for RTC and external EEPROM
+-------------------------------
+i2cdetect -y -r 1
+hwclock -r -f /dev/rtc1
+i2c-2;
+P9_19: I2C SCL
+P9_20: I2C SDA
+
+Control H-Bridge 
+-------------------------
+P8_11: GPIO1[13]; gpio_no:45, addr=0x834
+P8_12: GPIO1[12]; gpio_no:44, addr=0x830
+P8_13: GPIO0[23]; gpio_no:23, addr=0x824
+P8_14: GPIO0[26]; gpio_no:26, addr=0x828
+
+Control Green/Red LEDs
+-------------------------
+P8_15: GPIO1[15]; gpio_no:47, addr=0x83c
+P8_16: GPIO1[14]; gpio_no:46, addr=0x838
